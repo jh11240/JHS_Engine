@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
+#include "CommonInclude.h"
 
 #define MAX_LOADSTRING 100
 
@@ -17,10 +18,10 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴스 핸들
+                     _In_opt_ HINSTANCE hPrevInstance,  //바로 앞에 실행된 현재 프로그램의 인스턴스 핸들, 없을 경우에는 NULL(호환성위해 존재, 지금은 필요 x)
+                     _In_ LPWSTR    lpCmdLine,          // 명령행 프로그램 main의 인수 (거의 안 씀)
+                     _In_ int       nCmdShow)           // 실행될 형태, 모양 정보
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
@@ -99,7 +100,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -147,6 +148,47 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
+
+            //
+            // 사이클
+            // 
+            // HPEN mypen - 펜 핸들 선언한다.
+            // mypen=CreatePen() - GDI 오브젝트 만듬
+            // oldpen = SelectObject() - DC에 선택하되 이전 핸들 저장!
+            // RECTangle, Ellipse ... 사용한다.
+            // SelectObject() 다시 선택을 해제한다.
+            // DeleteObject() 삭제한다.
+
+
+            //파랑 브러쉬 생성
+            HBRUSH brush = CreateSolidBrush(RGB(0,0,255));
+            // 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
+            HBRUSH oldBrush = (HBRUSH) SelectObject(hdc, brush);
+            
+
+            Rectangle(hdc, 100,100, 200,200);
+
+            //다시 흰색 브러쉬로 반환
+            SelectObject(hdc, oldBrush);
+
+            //파랑 브러쉬 삭제
+            DeleteObject(brush);
+
+            HPEN redPen = CreatePen(PS_DOT, 2, RGB(255, 0, 0));
+            
+            HPEN oldPen = (HPEN) SelectObject(hdc, redPen);
+
+            Ellipse(hdc, 100, 100, 200, 200);
+            SelectObject(hdc, oldPen);
+            DeleteObject(redPen);
+
+            //기본으로 자주 사용되는 GDI오브젝트들은 스톡 오브젝트라고 하고 미리 DC안에 만들어놓음
+
+            //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
+            // GDI모듈에 의해 관리됨.
+            // 어떤 폰트? 어떤 선의 굵기를 정할건지, 어떤 색상으로 그릴건지
+            // 화면출력에 필요한 모든 경우는 Winapi에서는 DC를 통해서 작업을 진행할 수 있다.
+            // 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
@@ -154,6 +196,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
