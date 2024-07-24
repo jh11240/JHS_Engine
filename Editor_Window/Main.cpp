@@ -183,6 +183,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             DeleteObject(redPen);
 
             //기본으로 자주 사용되는 GDI오브젝트들은 스톡 오브젝트라고 하고 미리 DC안에 만들어놓음
+            //지우면 안됨
+            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+            HBRUSH oldPen = (HBRUSH)SelectObject(hdc, grayBrush);
 
             //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
             // GDI모듈에 의해 관리됨.
