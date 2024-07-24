@@ -56,6 +56,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 }
 
 
+//github test
 
 //
 //  함수: MyRegisterClass()
