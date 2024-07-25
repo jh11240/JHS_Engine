@@ -5,6 +5,10 @@
 #include "Editor_Window.h"
 #include "CommonInclude.h"
 
+#include "..\\JHSEngine_Source\\JHApplication.h"
+
+JHApplication app;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -43,13 +47,30 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
 
     MSG msg;
 
+    //프로세스에서 발생한 메시지를 메시지 큐에서 가져오는 함수
+    // 메시지 큐에 아무것도 없다면 아무 메시지도 안 가져옴
+    // 
+    // PeekMessage : 메세지큐에 메세지 유무에 상관없이 함수가 리턴된다.
+    //               리턴값이 true인경우 메시지가 있고 false인 경우 메시지가 없다라고 가르켜준다.
+    //
+
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+            if (msg.message == WM_QUIT) {
+                break;
+            }
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else 
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            //메세지 없을 경우 여기서 처리
+            //게임 로직
         }
     }
 
@@ -144,6 +165,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+    
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
@@ -185,7 +207,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //기본으로 자주 사용되는 GDI오브젝트들은 스톡 오브젝트라고 하고 미리 DC안에 만들어놓음
             //지우면 안됨
             HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            HBRUSH oldPen = (HBRUSH)SelectObject(hdc, grayBrush);
+            HBRUSH oldgrayPen = (HBRUSH)SelectObject(hdc, grayBrush);
 
             //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
             // GDI모듈에 의해 관리됨.
