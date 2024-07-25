@@ -18,10 +18,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />
   </ItemGroup>
 </Project>
