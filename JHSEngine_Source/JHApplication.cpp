@@ -1,4 +1,5 @@
 #include "JHApplication.h"
+#include "JHInput.h"
 namespace JH
 {
     JHApplication::JHApplication()
@@ -16,8 +17,12 @@ namespace JH
 		mHdc = GetDC(hwnd);
 
         mPlayer.SetPosition(0.f, 0.f);
+		Input::Initialize();
 	}
 	void JHApplication::Update() {
+
+		Input::Update();
+
         mPlayer.Update();
 	}
 	void JHApplication::Run() {
