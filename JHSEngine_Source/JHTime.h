@@ -7,7 +7,7 @@ namespace JH
 	public:
 		static void Initialize();
 		static void Update();
-
+		static void Render(HDC dc);
 
 
 	private:

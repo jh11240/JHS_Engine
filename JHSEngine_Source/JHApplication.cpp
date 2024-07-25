@@ -1,5 +1,6 @@
 #include "JHApplication.h"
 #include "JHInput.h"
+#include "JHTime.h"
 namespace JH
 {
     JHApplication::JHApplication()
@@ -35,6 +36,7 @@ namespace JH
 	}
 	void JHApplication::Render() 
     {
+		Time::Render(mHdc);
         mPlayer.Render(mHdc);
 	}
 }
