@@ -3,11 +3,10 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
-#include "CommonInclude.h"
 
 #include "..\\JHSEngine_Source\\JHApplication.h"
 
-JHApplication app;
+JH::JHApplication app;
 
 #define MAX_LOADSTRING 100
 
@@ -69,8 +68,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
         }
         else 
         {
-            //메세지 없을 경우 여기서 처리
-            //게임 로직
+            app.Run();
         }
     }
 
@@ -123,6 +121,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
+   app.Initialize(hWnd);
    if (!hWnd)
    {
       return FALSE;
@@ -171,43 +170,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
 
-            //
-            // 사이클
-            // 
-            // HPEN mypen - 펜 핸들 선언한다.
-            // mypen=CreatePen() - GDI 오브젝트 만듬
-            // oldpen = SelectObject() - DC에 선택하되 이전 핸들 저장!
-            // RECTangle, Ellipse ... 사용한다.
-            // SelectObject() 다시 선택을 해제한다.
-            // DeleteObject() 삭제한다.
-
-
-            //파랑 브러쉬 생성
-            HBRUSH brush = CreateSolidBrush(RGB(0,0,255));
-            // 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-            HBRUSH oldBrush = (HBRUSH) SelectObject(hdc, brush);
-            
-
-            Rectangle(hdc, 100,100, 200,200);
-
-            //다시 흰색 브러쉬로 반환
-            SelectObject(hdc, oldBrush);
-
-            //파랑 브러쉬 삭제
-            DeleteObject(brush);
-
-            HPEN redPen = CreatePen(PS_DOT, 2, RGB(255, 0, 0));
-            
-            HPEN oldPen = (HPEN) SelectObject(hdc, redPen);
-
-            Ellipse(hdc, 100, 100, 200, 200);
-            SelectObject(hdc, oldPen);
-            DeleteObject(redPen);
-
-            //기본으로 자주 사용되는 GDI오브젝트들은 스톡 오브젝트라고 하고 미리 DC안에 만들어놓음
-            //지우면 안됨
-            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            HBRUSH oldgrayPen = (HBRUSH)SelectObject(hdc, grayBrush);
 
             //DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체
             // GDI모듈에 의해 관리됨.
