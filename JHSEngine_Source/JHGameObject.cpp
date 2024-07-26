@@ -1,35 +1,46 @@
 #include "JHGameObject.h"
 #include "JHInput.h"
 namespace JH {
-	GameObject::GameObject() 
-		:mX(0)
-		,mY(0)
+	GameObject::GameObject() :
+		mComponents{}
 	{
 	}
 
 	GameObject::~GameObject()
 	{
 	}
+	void GameObject::Initialize()
+	{
+		for (Component* comp : mComponents)
+		{
+			comp->Initialize();
+		}
+	}
 	void GameObject::Update()
 	{
 
-		const int speed = 100.0f;
-		//함수가 true면 0x8000을반환함
-		if (Input::GetKey(eKeyCode::A)) {
-			mX -= speed * Time::DeltaTime();
-		}
-		else if (Input::GetKey(eKeyCode::D)) {
-			mX += speed * Time::DeltaTime();
-		}
-		else if (Input::GetKey(eKeyCode::W)) {
-			mY -= speed * Time::DeltaTime();
-		}
-		else if (Input::GetKey(eKeyCode::S)) {
-			mY += speed * Time::DeltaTime();
-		}
+		//const int speed = 100.0f;
+		////함수가 true면 0x8000을반환함
+		//if (Input::GetKey(eKeyCode::A)) {
+		//	mX -= speed * Time::DeltaTime();
+		//}
+		//else if (Input::GetKey(eKeyCode::D)) {
+		//	mX += speed * Time::DeltaTime();
+		//}
+		//else if (Input::GetKey(eKeyCode::W)) {
+		//	mY -= speed * Time::DeltaTime();
+		//}
+		//else if (Input::GetKey(eKeyCode::S)) {
+		//	mY += speed * Time::DeltaTime();
+		//}
+
+		for (Component* comp : mComponents)
+			comp->Update();
 	}
 	void GameObject::LateUpdate()
 	{
+		for (Component* comp : mComponents)
+			comp->LateUpdate();
 	}
 	void GameObject::Render(HDC hdc)
 	{
@@ -44,19 +55,9 @@ namespace JH {
 		// DeleteObject() 삭제한다.
 
 
-//파랑 브러쉬 생성
-		HBRUSH brush = CreateSolidBrush(RGB(rand()%255, rand() % 255, rand() % 255));
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
 
-		HPEN redPen = CreatePen(PS_DOT, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-		SelectObject(hdc, oldPen);
 
-		Ellipse(hdc, mX, mY,100 + mX, 100 + mY);
-		SelectObject(hdc, oldBrush);
-
-		DeleteObject(brush);
-		DeleteObject(redPen);
+		for (Component* comp : mComponents)
+			comp->Render(hdc);
 	}
 }
