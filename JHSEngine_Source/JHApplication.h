@@ -10,7 +10,7 @@ namespace JH {
 		JHApplication();
 		~JHApplication();
 
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd, UINT width, UINT height);
 		void Run();
 		void Update();
 		void LateUpdate();
@@ -20,6 +20,15 @@ namespace JH {
 	private:
 		HWND mHwnd;
 		HDC mHdc;
+
+
+		HDC mBackHDC;
+		//압축이 안된 원본 그림파일
+		HBITMAP mBackBitmap;
+
+
+		UINT mWidth;
+		UINT mHeight;
 
 		//플레이어
 		GameObject mPlayer;
