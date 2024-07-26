@@ -1,6 +1,7 @@
 #include "JHApplication.h"
 #include "JHInput.h"
 #include "JHTime.h"
+#include "JHSceneManager.h"
 namespace JH
 {
 	JHApplication::JHApplication()
@@ -9,6 +10,7 @@ namespace JH
 		, mHeight(0)
 		, mBackHDC(NULL)
 		, mBackBitmap(NULL)
+		//,mGameObjects{}
     {
 
     }
@@ -21,6 +23,8 @@ namespace JH
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
+		SceneManager::Initialize();
+
 		adjustWindowRect(mHwnd, width, height);
 
 		createBuffer(width, height);
@@ -31,7 +35,9 @@ namespace JH
 
 		Input::Update();
 		Time::Update();
-        mPlayer.Update();
+
+		SceneManager::Update();
+
 	}
 	void JHApplication::Run() {
 		Update();
@@ -39,14 +45,16 @@ namespace JH
 		Render();
 	}
 	void JHApplication::LateUpdate() {
-
+		SceneManager::LateUpdate();
 	}
 	void JHApplication::Render() 
     {
 		clearRenderTarget();
 
 		Time::Render(mBackHDC);
-        mPlayer.Render(mBackHDC);
+
+
+		SceneManager::Render(mBackHDC);
 
 		copyRenderTarget(mBackHDC, mHdc);
 	}
@@ -88,7 +96,6 @@ namespace JH
 		DeleteObject(oldBitmap);
 	}
 	void JHApplication::initializeEtc() {
-		mPlayer.SetPosition(0.f, 0.f);
 		Input::Initialize();
 		Time::Initialize();
 	}

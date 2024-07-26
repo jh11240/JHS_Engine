@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\JHSEngine_Source\\JHApplication.h"
+#include "..\\JHSEngine_Window\\JHLoadScenes.h"
 
 JH::JHApplication app;
 
@@ -132,6 +133,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+   //load scene
+   JH::LoadScenes();
 
    return TRUE;
 }

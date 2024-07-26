@@ -1,5 +1,5 @@
 #include "JHInput.h"
-#include"algorithm"
+
 namespace JH {
 
 	//static 변수 초기화

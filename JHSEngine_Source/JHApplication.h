@@ -36,7 +36,8 @@ namespace JH {
 		UINT mHeight;
 
 		//플레이어
-		GameObject mPlayer;
+
+		//std::vector<GameObject*> mGameObjects;
 	};
 
 
