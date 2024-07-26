@@ -11,18 +11,19 @@ namespace JH {
 	void GameObject::Update()
 	{
 
+		const int speed = 100.0f;
 		//함수가 true면 0x8000을반환함
 		if (Input::GetKey(eKeyCode::A)) {
-			mX -= 0.01f;
+			mX -= speed * Time::DeltaTime();
 		}
 		else if (Input::GetKey(eKeyCode::D)) {
-			mX += 0.01f;
+			mX += speed * Time::DeltaTime();
 		}
 		else if (Input::GetKey(eKeyCode::W)) {
-			mY -= 0.01f;
+			mY -= speed * Time::DeltaTime();
 		}
 		else if (Input::GetKey(eKeyCode::S)) {
-			mY += 0.01f;
+			mY += speed * Time::DeltaTime();
 		}
 	}
 	void GameObject::LateUpdate()

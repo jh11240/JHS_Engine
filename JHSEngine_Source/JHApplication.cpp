@@ -19,11 +19,12 @@ namespace JH
 
         mPlayer.SetPosition(0.f, 0.f);
 		Input::Initialize();
+		Time::Initialize();
 	}
 	void JHApplication::Update() {
 
 		Input::Update();
-
+		Time::Update();
         mPlayer.Update();
 	}
 	void JHApplication::Run() {

@@ -1,5 +1,6 @@
 #pragma once
 #include "JHGameObject.h"
+#include "JHTime.h"
 
 namespace JH {
 
@@ -21,7 +22,6 @@ namespace JH {
 		HDC mHdc;
 
 		//플레이어
-
 		GameObject mPlayer;
 	};
 

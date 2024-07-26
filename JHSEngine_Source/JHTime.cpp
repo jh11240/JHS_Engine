@@ -5,9 +5,9 @@ namespace JH {
 	LARGE_INTEGER Time::CpuFrequency = {};
 	LARGE_INTEGER Time::PrevFrequency = {};
 	LARGE_INTEGER Time::CurrentFrequency = {};
-	static float DeltaTime = 0.f;
+	float Time::DeltaTimeValue = 0.f;
 
-	void JH::Time::Initialize()
+	void Time::Initialize()
 	{
 		//cpu 고유 진동수 (1초당 틱수)
 		QueryPerformanceFrequency(&CpuFrequency);
@@ -16,7 +16,7 @@ namespace JH {
 		QueryPerformanceCounter(&PrevFrequency);
 	}
 
-	void JH::Time::Update()
+	void Time::Update()
 	{
 
 		QueryPerformanceCounter(&CurrentFrequency);
@@ -24,7 +24,7 @@ namespace JH {
 		float differenceFrequency
 			=static_cast<float>( CurrentFrequency.QuadPart - PrevFrequency.QuadPart);
 
-		DeltaTime = differenceFrequency / static_cast<float>(CpuFrequency.QuadPart);
+		DeltaTimeValue = differenceFrequency / static_cast<float>(CpuFrequency.QuadPart);
 
 		PrevFrequency.QuadPart = CurrentFrequency.QuadPart;
 	}
@@ -32,11 +32,13 @@ namespace JH {
 	{
 		static float time = 0.0f;
 
-		time += DeltaTime;
+		time += DeltaTimeValue;
 		wchar_t str[50] = L"";
-		swprintf_s(str, 50, L"Time : %f", time);
+		float fps = 1.0f / DeltaTimeValue;
+		swprintf_s(str, 50, L"FPS : %d", (int)fps);
 		int len = wcsnlen_s(str, 50);
 
-		TextOut(hdc, 0, 0, str, len);
+
+		TextOut(dc, 0, 0, str, len);
 	}
 }

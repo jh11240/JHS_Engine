@@ -61,25 +61,25 @@ namespace JH {
 
 	void Input::updateKeyDown(Key& key)
 	{
-		if (Keys[i].bPressed == true)
+		if (key.bPressed == true)
 		{
-			Keys[i].state = eKeyState::Pressed;
+			key.state = eKeyState::Pressed;
 		}
 		else
 		{
-			Keys[i].state = eKeyState::Down;
+			key.state = eKeyState::Down;
 		}
-		Keys[i].bPressed = true;
+		key.bPressed = true;
 	}
 
 	void Input::updateKeyUp(Key& key)
 	{
-		if (Keys[i].bPressed == true)
-			Keys[i].state = eKeyState::Up;
+		if (key.bPressed == true)
+			key.state = eKeyState::Up;
 
 		else
-			Keys[i].state = eKeyState::None;
-		Keys[i].bPressed = false;
+			key.state = eKeyState::None;
+		key.bPressed = false;
 	}
 	
 }
