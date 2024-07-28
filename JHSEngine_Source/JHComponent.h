@@ -4,6 +4,7 @@
 namespace JH {
 	//전방 선언
 	class GameObject;
+
 	class Component :public Entity
 	{
 	public:

@@ -1,4 +1,9 @@
 #include "JHPlayScene.h"
+#include "JHGameObject.h"
+#include "JHPlayer.h"
+#include "JHTransform.h"
+#include "JHSpriteRenderer.h"
+
 namespace JH {
 	JH::PlayScene::PlayScene()
 	{
@@ -10,11 +15,20 @@ namespace JH {
 
 	void JH::PlayScene::Initialize()
 	{
+		{
+			Player* bg = new Player();
+			Transform* tr = bg->AddComponent<Transform>();
 
-		for (size_t i = 0; i < 100; i++) {
-			GameObject* objc = new GameObject();
-			objc->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(objc);
+			tr->SetPos(Vector2(0,0));
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+
+			sr->SetName(L"SR");
+			sr->ImageLoad(L"D:\\Source\\Resources\\PegasusWhited.png");
+
+			AddGameObject(bg);
 		}
 	}
 

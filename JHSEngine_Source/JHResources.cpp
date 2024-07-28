@@ -1,0 +1,1 @@
+#include "JHResources.h"

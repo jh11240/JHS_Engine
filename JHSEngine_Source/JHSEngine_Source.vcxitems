@@ -20,6 +20,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
@@ -32,6 +35,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />

@@ -1,7 +1,10 @@
 #include "JHSpriteRenderer.h"
-
+#include "JHGameObject.h"
 namespace JH {
 	SpriteRenderer::SpriteRenderer()
+		:mImage(nullptr),
+		mWidth(0),
+		mHeight(0)
 	{
 	}
 
@@ -23,21 +26,19 @@ namespace JH {
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		//파랑 브러쉬 생성
-		HBRUSH brush = CreateSolidBrush(RGB(rand()%255, rand() % 255, rand() % 255));
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
-		HPEN redPen = CreatePen(PS_DOT, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-		SelectObject(hdc, oldPen);
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
+		
+		Vector2 pos = tr->GetPosition();
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
 
-		Ellipse(hdc, mX, mY,100 + mX, 100 + mY);
-		SelectObject(hdc, oldBrush);
+	}
 
-		DeleteObject(brush);
-		DeleteObject(redPen);
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		mImage = Gdiplus::Image::FromFile(path.c_str());
+		mWidth = mImage->GetWidth();
+		mHeight = mImage->GetHeight();
 	}
 }

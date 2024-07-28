@@ -61,35 +61,35 @@ namespace JH
 
 	void JHApplication::clearRenderTarget()
 	{		
-		//clear 이게 하얀 배경 역할을 함
+		//clear Clearing
 		Rectangle(mBackHDC, -1, -1, 1601, 901);
 	}
 	void JHApplication::copyRenderTarget(HDC source, HDC dest)
 	{
 
-		///back buffer에 있는걸 원본 buffer에 복사함
+		///back buffer 
 		BitBlt(dest, 0, 0, mWidth, mHeight
 			, source, 0, 0, SRCCOPY);
 	}
 	void JHApplication::adjustWindowRect(HWND hwnd, UINT width, UINT height) {
 
 		RECT rect = { 0,0,width ,height };
-		//실제 작업 영역 구하고
+
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 		mWidth = rect.right - rect.left;
 		mHeight = rect.bottom - rect.top;
 
-		//window position 다시 지정
+
 		SetWindowPos(hwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		//다시 화면 띄워줌
+
 		ShowWindow(hwnd, true);
 	}
 	void JHApplication::createBuffer(UINT width, UINT height) {
-		//윈도우 해상도에 맞는 백버퍼(도화지) 생성
+
 		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
 
-		//백버퍼를 가르킬 DC생성
+
 		mBackHDC = CreateCompatibleDC(mHdc);
 
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHDC, mBackBitmap);

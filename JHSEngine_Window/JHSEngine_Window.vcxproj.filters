@@ -9,9 +9,19 @@
     <ClInclude Include="JHLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="JHPlayScene.h" />
+    <ClInclude Include="JHPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="JHTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JHPlayScene.cpp" />
+    <ClCompile Include="JHPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="JHTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
