@@ -8,6 +8,7 @@
 #include "..\\JHSEngine_Window\\JHLoadScenes.h"
 
 JH::JHApplication app;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -75,6 +76,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
             app.Run();
         }
     }
+    Gdiplus::GdiplusShutdown(gpToken);
 
     return (int) msg.wParam;
 }
@@ -136,6 +138,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    //load scene
    JH::LoadScenes();
 
