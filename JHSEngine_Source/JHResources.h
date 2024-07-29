@@ -30,6 +30,10 @@ namespace JH {
 			{
 				assert(false);
 			}
+			resource->SetName(key);
+			resource->SetPath(path);
+			mResources.insert(std::make_pair(key, resource));
+
 			return resource;
 		}
 

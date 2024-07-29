@@ -1,4 +1,4 @@
-﻿// Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
+// Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
 #include "framework.h"
@@ -6,6 +6,7 @@
 
 #include "..\\JHSEngine_Source\\JHApplication.h"
 #include "..\\JHSEngine_Window\\JHLoadScenes.h"
+#include "..\\JHSEngine_Window\\JHLoadResources.h"
 
 JH::JHApplication app;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -141,6 +142,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    //load scene
+   JH::LoadResources();
    JH::LoadScenes();
 
    return TRUE;

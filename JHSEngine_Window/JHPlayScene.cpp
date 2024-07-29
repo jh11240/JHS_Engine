@@ -8,6 +8,7 @@
 #include "JHSceneManager.h"
 #include "JHObject.h"
 #include "JHTexture.h"
+#include "JHResources.h"
 
 namespace JH {
 	PlayScene::PlayScene()
@@ -20,7 +21,8 @@ namespace JH {
 
 	void PlayScene::Initialize()
 	{
-		{
+		//°ÔÀÓ ¿ÀºêÁ§Æ® ¸¸µé±â Àü¿¡ ¸®¼Ò½ºµé ÀüºÎ LoadÇØµÎ¸é ÁÁ´Ù.
+		// 
 			//bg = new Player();
 			//Transform* tr = bg->AddComponent<Transform>();
 
@@ -39,15 +41,17 @@ namespace JH {
 			
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-			graphics::Texture* tex = new  graphics::Texture();
-			tex->Load(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
+			//graphics::Texture* tex = new  graphics::Texture();
+			//tex->Load(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
+			
 
+			//sprite renderer¿¡¼­ texture·Î ¿Å±â°í ±×ÈÄ tex·Î ´Ù½Ã ¿Å±è
 			//sr->ImageLoad(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
-			//í˜„ì¬ëŠ” ì ˆëŒ€ ê²½ë¡œ
-			//ë‹¤ìŒì€ ìƒëŒ€ ê²½ë¡œ
+			//?„ì¬???ˆë? ê²½ë¡œ
+			//?¤ìŒ?€ ?ë? ê²½ë¡œ
 
 			Scene::Initialize();
-		}
+		
 	}
 
 	void PlayScene::Update()
