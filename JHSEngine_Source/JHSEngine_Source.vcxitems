@@ -18,8 +18,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
@@ -35,6 +37,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp" />

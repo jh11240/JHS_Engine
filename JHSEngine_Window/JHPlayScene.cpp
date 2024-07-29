@@ -3,20 +3,23 @@
 #include "JHPlayer.h"
 #include "JHTransform.h"
 #include "JHSpriteRenderer.h"
+#include "JHInput.h"
+#include "JHTitleScene.h"
+#include "JHSceneManager.h"
 
 namespace JH {
-	JH::PlayScene::PlayScene()
+	PlayScene::PlayScene()
 	{
 	}
 
-	JH::PlayScene::~PlayScene()
+	PlayScene::~PlayScene()
 	{
 	}
 
-	void JH::PlayScene::Initialize()
+	void PlayScene::Initialize()
 	{
 		{
-			Player* bg = new Player();
+			bg = new Player();
 			Transform* tr = bg->AddComponent<Transform>();
 
 			tr->SetPos(Vector2(0,0));
@@ -26,27 +29,43 @@ namespace JH {
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
 			sr->SetName(L"SR");
-			sr->ImageLoad(L"D:\\Source\\Resources\\PegasusWhited.png");
+			sr->ImageLoad(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
 
-			AddGameObject(bg);
+			AddGameObject(bg, eLayerType::BackGround);
 		}
 	}
 
-	void JH::PlayScene::Update()
+	void PlayScene::Update()
 	{
 		Scene::Update();
 
 	}
 
-	void JH::PlayScene::LateUpdate()
+	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
+
 	}
 
-	void JH::PlayScene::Render(HDC hdc)
+	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 0, 0, str, 11);
 
+	}
+	void PlayScene::OnEnter()
+	{
+	}
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+
+		tr->SetPos(Vector2(0, 0));
 	}
 }

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{cd20382b-1704-4721-81ab-2b1c49190cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{11badb98-e73a-4e1c-ab77-50d3df53a606}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

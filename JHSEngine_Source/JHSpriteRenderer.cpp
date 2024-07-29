@@ -1,4 +1,4 @@
-#include "JHSpriteRenderer.h"
+#include "JHSpriteRenderer.h" 
 #include "JHGameObject.h"
 namespace JH {
 	SpriteRenderer::SpriteRenderer()
