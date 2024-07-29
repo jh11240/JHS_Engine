@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace JH
+namespace JH::enums
 {
 	enum class eLayerType
 	{
@@ -11,5 +11,13 @@ namespace JH
 		//character
 		Player,
 		Max = 16,
+	};
+
+	enum class eResourceType
+	{
+		Texture,
+		AudioClip,
+		Prefab,
+		End,
 	};
 }

@@ -3,36 +3,43 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTransform.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -45,6 +52,24 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Layer">
@@ -52,6 +77,15 @@
     </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{11badb98-e73a-4e1c-ab77-50d3df53a606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{003e0e03-aaff-4d54-9ed7-7e0da508416d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{f1c36f6d-7927-4131-94a8-f1ba4965d069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{70585fcf-bf3a-47df-a557-12cc3727eac2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

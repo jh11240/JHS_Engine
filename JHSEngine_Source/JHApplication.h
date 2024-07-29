@@ -16,6 +16,7 @@ namespace JH {
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
 
 	private:
 		void clearRenderTarget();

@@ -11,9 +11,13 @@ namespace JH {
 		{
 			T* Scene = new T();
 			Scene->SetName(name);
+			mActiveScene = Scene;
 			Scene->Initialize();
 
 			mScene.insert(std::make_pair(name, Scene));
+
+			
+
 			return Scene;
 		}
 
@@ -34,6 +38,8 @@ namespace JH {
 
 			return iter->second;
 		}
+
+		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Initialize();
 		static void Update();

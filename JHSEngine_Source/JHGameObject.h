@@ -41,6 +41,8 @@ namespace JH {
 			return component;
 		}
 
+	private:
+		void initializeTransform();
 
 	private:
 

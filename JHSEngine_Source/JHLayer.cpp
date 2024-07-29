@@ -3,7 +3,7 @@
 namespace JH {
 
 	Layer::Layer()
-		:mType(eLayerType::None)
+		:mType(enums::eLayerType::None)
 		,mGameObjects{}
 	{
 

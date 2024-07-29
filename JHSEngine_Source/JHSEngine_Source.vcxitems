@@ -23,11 +23,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h" />
   </ItemGroup>
@@ -44,6 +46,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTransform.cpp" />
   </ItemGroup>

@@ -6,6 +6,8 @@
 #include "JHInput.h"
 #include "JHTitleScene.h"
 #include "JHSceneManager.h"
+#include "JHObject.h"
+#include "JHTexture.h"
 
 namespace JH {
 	PlayScene::PlayScene()
@@ -19,19 +21,32 @@ namespace JH {
 	void PlayScene::Initialize()
 	{
 		{
-			bg = new Player();
-			Transform* tr = bg->AddComponent<Transform>();
+			//bg = new Player();
+			//Transform* tr = bg->AddComponent<Transform>();
 
-			tr->SetPos(Vector2(0,0));
+			//tr->SetPosition(Vector2(0,0));
 
-			tr->SetName(L"TR");
+			//tr->SetName(L"TR");
 
+			//SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+
+			//sr->SetName(L"SR");
+
+			//AddGameObject(bg, enums::eLayerType::BackGround);
+			bg = object::Instantiate<Player>
+				(enums::eLayerType::BackGround, Vector2(100.0f,100.0f));
+
+			
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
+			graphics::Texture* tex = new  graphics::Texture();
+			tex->Load(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
 
-			AddGameObject(bg, eLayerType::BackGround);
+			//sr->ImageLoad(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
+			//현재는 절대 경로
+			//다음은 상대 경로
+
+			Scene::Initialize();
 		}
 	}
 
@@ -64,8 +79,8 @@ namespace JH {
 	}
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
+		//Transform* tr = bg->GetComponent<Transform>();
 
-		tr->SetPos(Vector2(0, 0));
+		//tr->SetPosition(Vector2(0, 0));
 	}
 }

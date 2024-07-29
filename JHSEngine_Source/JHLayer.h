@@ -20,7 +20,7 @@ namespace JH
 
 
 	private:
-			eLayerType mType;
+			enums::eLayerType mType;
 			std::vector<GameObject*> mGameObjects;
 	};
 
