@@ -2,7 +2,7 @@
 #include "JHResource.h"
 
 namespace JH {
-	class Resources
+	class Resources 
 	{
 	public:
 		template<typename T>

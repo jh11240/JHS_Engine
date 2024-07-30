@@ -2,6 +2,7 @@
 #include "JHComponent.h"
 #include "CommonInclude.h"
 #include "JHTransform.h"
+#include "JHTexture.h"
 
 namespace JH {
 	class SpriteRenderer:public Component
@@ -15,9 +16,12 @@ namespace JH {
 		void LateUpdate()  override;
 		void Render(HDC hdc) override;
 
-	private:
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size; }
 
-		
+	private:
+		graphics::Texture* mTexture;
+		math::Vector2 mSize;
 	};
 }
 

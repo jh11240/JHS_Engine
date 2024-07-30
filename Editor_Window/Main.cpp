@@ -8,7 +8,7 @@
 #include "..\\JHSEngine_Window\\JHLoadScenes.h"
 #include "..\\JHSEngine_Window\\JHLoadResources.h"
 
-JH::JHApplication app;
+JH::JHApplication application;
 Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
@@ -74,7 +74,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
         }
         else 
         {
-            app.Run();
+            application.Run();
         }
     }
     Gdiplus::GdiplusShutdown(gpToken);
@@ -131,7 +131,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
-   app.Initialize(hWnd, width, height);
+   application.Initialize(hWnd, width, height);
    if (!hWnd)
    {
       return FALSE;

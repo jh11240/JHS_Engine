@@ -21,7 +21,7 @@ namespace JH {
 
 	void PlayScene::Initialize()
 	{
-		//°ÔÀÓ ¿ÀºêÁ§Æ® ¸¸µé±â Àü¿¡ ¸®¼Ò½ºµé ÀüºÎ LoadÇØµÎ¸é ÁÁ´Ù.
+
 		// 
 			//bg = new Player();
 			//Transform* tr = bg->AddComponent<Transform>();
@@ -37,18 +37,20 @@ namespace JH {
 			//AddGameObject(bg, enums::eLayerType::BackGround);
 			bg = object::Instantiate<Player>
 				(enums::eLayerType::BackGround, Vector2(100.0f,100.0f));
-
-			
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+
+			graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+			sr->SetTexture(bg);
+			
 
 			//graphics::Texture* tex = new  graphics::Texture();
 			//tex->Load(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
 			
 
-			//sprite renderer¿¡¼­ texture·Î ¿Å±â°í ±×ÈÄ tex·Î ´Ù½Ã ¿Å±è
+			//sprite rendererï¿½ï¿½ï¿½ï¿½ textureï¿½ï¿½ ï¿½Å±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ texï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Å±ï¿½
 			//sr->ImageLoad(L"D:\\JH\\JHSEngine\\Resources\\PegasusWhited.png");
-			//?„ì¬???ˆë? ê²½ë¡œ
-			//?¤ìŒ?€ ?ë? ê²½ë¡œ
+			//ì ˆëŒ€ ê²½ë¡œ
+			//ìƒëŒ€ ê²½ë¡œ
 
 			Scene::Initialize();
 		
