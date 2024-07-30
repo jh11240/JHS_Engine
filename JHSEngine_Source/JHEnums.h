@@ -3,6 +3,14 @@
 
 namespace JH::enums
 {
+	enum class eComponenetType
+	{
+		Transform,
+		SpriteRenderer,
+		Script,
+		Camera,
+		End,
+	};
 	enum class eLayerType
 	{
 		None,

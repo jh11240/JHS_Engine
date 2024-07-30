@@ -1,8 +1,9 @@
 #include "JHComponent.h"
 namespace JH {
 
-	Component::Component()
+	Component::Component(enums::eComponenetType type)
 		:mOwner(nullptr)
+		,mType(type)
 	{
 
 	}

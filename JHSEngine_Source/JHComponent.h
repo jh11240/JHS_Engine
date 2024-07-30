@@ -9,7 +9,7 @@ namespace JH {
 	{
 	public:
 
-		Component();
+		Component(enums::eComponenetType type);
 		~Component();
 
 
@@ -22,9 +22,10 @@ namespace JH {
 		GameObject* GetOwner() {
 			return mOwner;
 		}
+		enums::eComponenetType GetType() { return mType; }
 	private:
 		GameObject* mOwner;
-
+		enums::eComponenetType mType;
 	};
 
 }

@@ -1,25 +1,29 @@
 #include "JHTransform.h"
 
-JH::Transform::Transform()
-{
-}
+namespace JH {
 
-JH::Transform::~Transform()
-{
-}
+	Transform::Transform()
+		: Component(enums::eComponenetType::Transform)
+	{
+	}
 
-void JH::Transform::Initialize()
-{
-}
+	Transform::~Transform()
+	{
+	}
 
-void JH::Transform::Update()
-{
-}
+	void Transform::Initialize()
+	{
+	}
 
-void JH::Transform::LateUpdate()
-{
-}
+	void Transform::Update()
+	{
+	}
 
-void JH::Transform::Render(HDC hdc)
-{
+	void Transform::LateUpdate()
+	{
+	}
+
+	void Transform::Render(HDC hdc)
+	{
+	}
 }

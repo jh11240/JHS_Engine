@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHEnums.h" />
@@ -24,10 +25,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
@@ -35,16 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />

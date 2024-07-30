@@ -1,9 +1,10 @@
 #include "JHSpriteRenderer.h" 
 #include "JHGameObject.h"
 #include "JHTexture.h"
+#include "JHRenderer.h"
 namespace JH {
 	SpriteRenderer::SpriteRenderer()
-		:Component()
+		:Component(enums::eComponenetType::SpriteRenderer)
 		,mTexture(nullptr)
 		,mSize(Vector2(1.0f,1.0f))
 	{
@@ -35,6 +36,7 @@ namespace JH {
 		}
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Bmp)

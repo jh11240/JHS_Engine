@@ -134,12 +134,14 @@
   <ItemGroup>
     <ClInclude Include="JHLoadScenes.h" />
     <ClInclude Include="JHPlayer.h" />
+    <ClInclude Include="JHPlayerScript.h" />
     <ClInclude Include="JHPlayScene.h" />
     <ClInclude Include="JHTitleScene.h" />
     <ClInclude Include="JHLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JHPlayer.cpp" />
+    <ClCompile Include="JHPlayerScript.cpp" />
     <ClCompile Include="JHPlayScene.cpp" />
     <ClCompile Include="JHTitleScene.cpp" />
   </ItemGroup>

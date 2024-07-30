@@ -2,13 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHTime.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -30,16 +27,31 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -70,6 +82,24 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Layer">
@@ -86,6 +116,24 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{70585fcf-bf3a-47df-a557-12cc3727eac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{4f5f9f49-a9ad-43d7-bb71-e56cf3915de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{95490aac-73b8-43be-9cc8-de467ca8effa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{dd91da0c-8e8c-42fa-84e2-c5fadf95d7c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{08d089a5-8504-424d-a780-31d87b7c7400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{461f2074-f8be-4d60-9bf1-ef059db49c2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{d76b332d-0eb5-46f3-88a0-ce701ee80c9c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
