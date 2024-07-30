@@ -17,6 +17,7 @@
     </ClInclude>
     <ClInclude Include="JHPlayer.h" />
     <ClInclude Include="JHLoadResources.h" />
+    <ClInclude Include="JHPlayerScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JHPlayScene.cpp">
@@ -26,5 +27,6 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="JHPlayer.cpp" />
+    <ClCompile Include="JHPlayerScript.cpp" />
   </ItemGroup>
 </Project>

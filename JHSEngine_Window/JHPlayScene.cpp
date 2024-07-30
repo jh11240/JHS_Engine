@@ -15,6 +15,7 @@
 
 namespace JH {
 	PlayScene::PlayScene()
+		:mPlayer(nullptr)
 	{
 	}
 
