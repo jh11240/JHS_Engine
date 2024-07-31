@@ -7,6 +7,7 @@ namespace JH::enums
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
@@ -18,6 +19,7 @@ namespace JH::enums
 		//Tree
 		//character
 		Player,
+		Particle,
 		Max = 16,
 	};
 
@@ -25,6 +27,7 @@ namespace JH::enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

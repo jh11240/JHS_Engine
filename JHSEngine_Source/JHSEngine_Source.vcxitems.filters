@@ -27,9 +27,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHScript.cpp">
       <Filter>Component\Script</Filter>
     </ClCompile>
@@ -44,6 +41,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHRenderer.cpp">
       <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimator.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimation.cpp">
+      <Filter>Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,9 +88,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHScript.h">
       <Filter>Component\Script</Filter>
     </ClInclude>
@@ -99,6 +102,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHRenderer.h">
       <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimator.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimation.h">
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +146,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{d76b332d-0eb5-46f3-88a0-ce701ee80c9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component">
+      <UniqueIdentifier>{81910722-0e71-460a-9217-95ec94e6fb80}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

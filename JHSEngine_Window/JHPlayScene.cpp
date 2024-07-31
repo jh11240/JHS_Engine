@@ -12,6 +12,7 @@
 #include "JHPlayerScript.h"
 #include "JHCamera.h"
 #include "JHRenderer.h"
+#include "JHAnimator.h"
 
 namespace JH {
 	PlayScene::PlayScene()
@@ -27,7 +28,7 @@ namespace JH {
 	{
 
 		// main camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.f,442.f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.f,442.f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 		//우린 sprite renderer에서 camera가 바라보는 좌표를 중심으로 좌표를 다시 계산하게 된다. 
@@ -38,21 +39,37 @@ namespace JH {
 		//camera->AddComponent<PlayerScript>();
 
 		mPlayer = object::Instantiate<Player>
-			(enums::eLayerType::Player);
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.f, 3.f));
+			(enums::eLayerType::Particle);
+		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize(Vector2(3.f, 3.f));*/
 		mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"PackMan");
-		sr->SetTexture(packmanTexture);
+		//graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffect");
+		//Animator* animator= mPlayer->AddComponent<Animator>();
+		//animator->CreateAnimation(L"CatFrontMove", packmanTexture, 
+		//	Vector2(0.f , 0.f), Vector2(386.0f, 246.f), Vector2::Zero, 8, 0.1f);
+
+		//animator->PlayAnimation(L"CatFrontMove", true);
+		
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
+		Animator* animator= mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"CatFrontMove", packmanTexture, 
+			Vector2(0.f , 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+
+
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
+		animator->PlayAnimation(L"CatFrontMove", true);
+		//mPlayer->GetComponent<Transform>()->SetRotation(30.f);
+		//sr->SetTexture(packmanTexture);
 
 		GameObject* bg= object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround);
+			(enums::eLayerType::Player);
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		bgSr->SetSize(Vector2(3.f, 3.f));
+		//bgSr->SetSize(Vector2(3.f, 3.f));
 		//bg->AddComponent<PlayerScript>();
 
-		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Map");
+		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
 		bgSr->SetTexture(bgTexture);
 
 		Scene::Initialize();

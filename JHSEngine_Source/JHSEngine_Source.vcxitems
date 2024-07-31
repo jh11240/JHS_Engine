@@ -15,6 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHTransform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp" />
