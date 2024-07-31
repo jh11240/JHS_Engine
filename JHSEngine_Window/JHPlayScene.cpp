@@ -53,13 +53,24 @@ namespace JH {
 		
 		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* animator= mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"CatFrontMove", packmanTexture, 
+		animator->CreateAnimation(L"DownWalk", packmanTexture, 
 			Vector2(0.f , 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"RightWalk", packmanTexture, 
+			Vector2(0.f , 32.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"UpWalk", packmanTexture, 
+			Vector2(0.f , 64.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"LeftWalk", packmanTexture, 
+			Vector2(0.f , 96.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"SitDown", packmanTexture, 
+			Vector2(0.f , 128.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"Grooming", packmanTexture, 
+			Vector2(0.f , 160.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
 
+
+		animator->PlayAnimation(L"SitDown", false);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
 		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
-		animator->PlayAnimation(L"CatFrontMove", true);
 		//mPlayer->GetComponent<Transform>()->SetRotation(30.f);
 		//sr->SetTexture(packmanTexture);
 
