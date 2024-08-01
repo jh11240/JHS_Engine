@@ -8,9 +8,10 @@ namespace JH
 	public:
 		enum class eState
 		{
-			SitDown,
+			Idle,
 			Walk,
 			Sleep,
+			GiveWater,
 			Attack
 		};
 		PlayerScript();
@@ -22,7 +23,7 @@ namespace JH
 		void Render(HDC hdc) override;
 
 	private:
-		void sitDown();
+		void idle();
 		void move();
 
 	private:

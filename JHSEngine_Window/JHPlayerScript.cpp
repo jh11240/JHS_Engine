@@ -5,7 +5,7 @@
 #include "JHGameObject.h"
 #include "JHAnimator.h"
 namespace JH {
-	PlayerScript::PlayerScript():mState(PlayerScript::eState::SitDown) ,
+	PlayerScript::PlayerScript():mState(PlayerScript::eState::Idle) ,
 		mAnimator(nullptr)
 	{
 	}
@@ -21,13 +21,15 @@ namespace JH {
 		mAnimator = GetOwner()->GetComponent<Animator>();
 		switch (mState)
 		{
-		case JH::PlayerScript::eState::SitDown:
-			sitDown();
+		case JH::PlayerScript::eState::Idle:
+			idle();
 			break;
 		case JH::PlayerScript::eState::Walk:
 			move();
 			break;
 		case JH::PlayerScript::eState::Sleep:
+			break;
+		case JH::PlayerScript::eState::GiveWater:
 			break;
 		case JH::PlayerScript::eState::Attack:
 			break;
@@ -42,35 +44,15 @@ namespace JH {
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::sitDown()
+	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::Right))
+		if (Input::GetKey(eKeyCode::MLeftBtn))
 		{
-			mState = JH::PlayerScript::eState::Walk;
+			mState = PlayerScript::eState::Walk;
 			mAnimator->PlayAnimation(L"RightWalk");
 
-		}
-		if (Input::GetKey(eKeyCode::Left))
-		{
-
-			mState = JH::PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"LeftWalk");
-
-
-		}
-		if (Input::GetKey(eKeyCode::Up))
-		{
-
-			mState = JH::PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"UpWalk");
-
-
-		}
-		if (Input::GetKey(eKeyCode::Down))
-		{
-			mState = JH::PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"DownWalk");
-
+			Vector2 mousePos = Input::GetMousePosition();
+			int a = 0;
 
 		}
 	}
@@ -103,7 +85,7 @@ namespace JH {
 		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Up)
 			|| Input::GetKeyUp(eKeyCode::Left) || Input::GetKeyUp(eKeyCode::Down)) {
 
-			mState = JH::PlayerScript::eState::SitDown;
+			mState = JH::PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"SitDown", false);
 
 		}

@@ -17,7 +17,7 @@ namespace JH {
 		A,S,D,F,G,H,J,K,L,
 		Z,X,C,V,B,N,M,
 		Left,Right,Down,Up,
-		MLeftBtn,MRightBtn,
+		MLeftBtn,MWheelBtn,MRightBtn,
 		End,
 	};
 
@@ -39,6 +39,7 @@ namespace JH {
 		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();
@@ -47,9 +48,11 @@ namespace JH {
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Key& key);
 		static void updateKeyUp(Key& key);
+		static void clearKeys();
 
 	private:
 		static std::vector<Key> Keys;
+		static math::Vector2 mMousePosition;
 	};
 }
 

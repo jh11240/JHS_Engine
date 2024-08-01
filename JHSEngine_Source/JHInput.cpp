@@ -1,9 +1,13 @@
 #include "JHInput.h"
+#include "JHApplication.h"
+
+extern JH::JHApplication application;
 
 namespace JH {
 
 	//static 변수 초기화
 	std::vector<Input::Key> Input::Keys = {};
+	math::Vector2 Input::mMousePosition = math::Vector2::One;
 
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -11,7 +15,7 @@ namespace JH {
 				'A','S','D','F','G','H','J','K','L',
 				'Z','X','C','V','B','N','M',
 				VK_LEFT,VK_RIGHT,VK_DOWN,VK_UP,
-				MK_LBUTTON,MK_RBUTTON,
+				MK_LBUTTON,MK_MBUTTON,MK_RBUTTON,
 	};
 
 
@@ -47,11 +51,27 @@ namespace JH {
 	}
 	void Input::updateKey(Key& key)
 	{
-		if (isKeyDown(key.keyCode)) {
-			updateKeyDown(key);
+		//내 해당 윈도우가 활성화 되어있을 때만
+		if (GetFocus())
+		{
+			if (isKeyDown(key.keyCode)) {
+				updateKeyDown(key);
+			}
+			else
+				updateKeyUp(key);
+			POINT mousePos = {};
+			//전체 윈도우의 좌표
+			GetCursorPos(&mousePos);
+
+			ScreenToClient(application.GetHwnd(), &mousePos);
+
+			mMousePosition.x = mousePos.x;
+			mMousePosition.y = mousePos.y;
 		}
-		else 
-			updateKeyUp(key);
+		else
+		{
+			clearKeys();
+		}
 	}
 
 	bool Input::isKeyDown(eKeyCode code)
@@ -80,6 +100,22 @@ namespace JH {
 		else
 			key.state = eKeyState::None;
 		key.bPressed = false;
+	}
+
+	void Input::clearKeys()
+	{
+		//창을 내려버리면 key 리셋
+		for (Key& key : Keys)
+		{
+			if (key.state == eKeyState::Down || key.state = eKeyState::Pressed) {
+				key.state = eKeyState::Up;
+			}
+			else if (key.state == eKeyState::Up) {
+				key.state = eKeyState::None;
+			}
+
+			key.bPressed = false;
+		}
 	}
 	
 }

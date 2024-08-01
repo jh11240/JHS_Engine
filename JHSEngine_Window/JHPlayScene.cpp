@@ -42,47 +42,22 @@ namespace JH {
 
 		mPlayer = object::Instantiate<Player>
 			(enums::eLayerType::Particle);
-		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.f, 3.f));*/
 		mPlayer->AddComponent<PlayerScript>();
 
-		//graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffect");
-		//Animator* animator= mPlayer->AddComponent<Animator>();
-		//animator->CreateAnimation(L"CatFrontMove", packmanTexture, 
-		//	Vector2(0.f , 0.f), Vector2(386.0f, 246.f), Vector2::Zero, 8, 0.1f);
 
-		//animator->PlayAnimation(L"CatFrontMove", true);
 		
-		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
-		Animator* animator= mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"DownWalk", packmanTexture, 
-			Vector2(0.f , 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"RightWalk", packmanTexture, 
-			Vector2(0.f , 32.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"UpWalk", packmanTexture, 
-			Vector2(0.f , 64.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"LeftWalk", packmanTexture, 
-			Vector2(0.f , 96.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"SitDown", packmanTexture, 
-			Vector2(0.f , 128.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"Grooming", packmanTexture, 
-			Vector2(0.f , 160.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
+		Animator* playerAnimator= mPlayer->AddComponent<Animator>();
+		playerAnimator->CreateAnimation(L"Idle", playerTex, 
+			Vector2(2000.f , 250.f), Vector2(250.f, 250.f), Vector2::Zero, 1, 0.1f);
 
 
-		animator->PlayAnimation(L"SitDown", false);
+
+		playerAnimator->PlayAnimation(L"Idle", false);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(10.f, 100.f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
-		//mPlayer->GetComponent<Transform>()->SetRotation(30.f);
-		//sr->SetTexture(packmanTexture);
+		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
-		//GameObject* bg= object::Instantiate<GameObject>
-		//	(enums::eLayerType::Player);
-		//SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-
-
-		//graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
-		//bgSr->SetTexture(bgTexture);
 
 		/// CAT
 
@@ -91,12 +66,6 @@ namespace JH {
 
 		cat->AddComponent<CatScript>();
 
-		//graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffect");
-		//Animator* animator= mPlayer->AddComponent<Animator>();
-		//animator->CreateAnimation(L"CatFrontMove", packmanTexture, 
-		//	Vector2(0.f , 0.f), Vector2(386.0f, 246.f), Vector2::Zero, 8, 0.1f);
-
-		//animator->PlayAnimation(L"CatFrontMove", true);
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
