@@ -4,6 +4,12 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{a06b7052-9cfb-49de-95a6-aa508688bff3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{46e59d2b-07e9-4d05-8f5a-3024aa34a4f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{64e2b6ba-85c0-4277-b6f2-33b2200bb71f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JHLoadScenes.h">
@@ -15,9 +21,19 @@
     <ClInclude Include="JHTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="JHPlayer.h" />
     <ClInclude Include="JHLoadResources.h" />
-    <ClInclude Include="JHPlayerScript.h" />
+    <ClInclude Include="JHPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JHCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JHPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="JHCatScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JHPlayScene.cpp">
@@ -26,7 +42,17 @@
     <ClCompile Include="JHTitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="JHPlayer.cpp" />
-    <ClCompile Include="JHPlayerScript.cpp" />
+    <ClCompile Include="JHPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JHCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JHPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="JHCatScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

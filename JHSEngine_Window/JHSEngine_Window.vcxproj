@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="JHCat.h" />
+    <ClInclude Include="JHCatScript.h" />
     <ClInclude Include="JHLoadScenes.h" />
     <ClInclude Include="JHPlayer.h" />
     <ClInclude Include="JHPlayerScript.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="JHLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JHCat.cpp" />
+    <ClCompile Include="JHCatScript.cpp" />
     <ClCompile Include="JHPlayer.cpp" />
     <ClCompile Include="JHPlayerScript.cpp" />
     <ClCompile Include="JHPlayScene.cpp" />

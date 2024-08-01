@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
+#include "time.h"
 
 #include "..\\JHSEngine_Source\\JHApplication.h"
 #include "..\\JHSEngine_Window\\JHLoadScenes.h"
@@ -144,6 +145,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //load scene
    JH::LoadResources();
    JH::LoadScenes();
+
+   int a = 0;
+   srand (unsigned int(&a));
 
    return TRUE;
 }
