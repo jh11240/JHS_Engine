@@ -26,6 +26,7 @@ namespace JH
 	}
 	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)
 	{
+		SetName(name);
 		mTexture = spriteSheet;
 		for (size_t i = 0; i < spriteLength; i++)
 		{

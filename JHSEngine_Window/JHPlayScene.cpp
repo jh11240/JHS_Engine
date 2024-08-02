@@ -42,7 +42,7 @@ namespace JH {
 
 		mPlayer = object::Instantiate<Player>
 			(enums::eLayerType::Particle);
-		mPlayer->AddComponent<PlayerScript>();
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
 
 		
@@ -56,6 +56,7 @@ namespace JH {
 
 
 		playerAnimator->PlayAnimation(L"Idle", false);
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater" ) = std::bind(&PlayerScript::AttackEffect,plScript );
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(10.f, 100.f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
@@ -92,6 +93,7 @@ namespace JH {
 		cat->GetComponent<Transform>()->SetPosition(Vector2(300.f, 300.f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
+		cameraComp->SetTarget(cat);
 
 		Scene::Initialize();
 	}

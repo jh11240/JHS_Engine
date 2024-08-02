@@ -4,6 +4,10 @@
 #include "JHTransform.h" 
 #include "JHGameObject.h"
 #include "JHAnimator.h"
+#include "JHCat.h"
+#include "JHCatScript.h"
+#include "JHObject.h"
+#include "JHResource.h"
 namespace JH {
 	PlayerScript::PlayerScript():mState(PlayerScript::eState::Idle) ,
 		mAnimator(nullptr)
@@ -43,6 +47,9 @@ namespace JH {
 	{
 	}
 	void PlayerScript::Render(HDC hdc)
+	{
+	}
+	void PlayerScript::AttackEffect()
 	{
 	}
 	void PlayerScript::idle()

@@ -21,16 +21,16 @@ namespace JH {
 			void operator()()
 			{
 				if (mEvent)
-					mEvent;
+					mEvent();
 			}
 			std::function <void()> mEvent;
 		};
 
 		struct Events
 		{
-			Event mStartEvent;
-			Event mCompleteEvent;
-			Event mEndEvent;
+			Event StartEvent;
+			Event CompleteEvent;
+			Event EndEvent;
 
 		};
 
@@ -53,6 +53,12 @@ namespace JH {
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name = L"Idle", bool loop = true);
+
+		Events* FindEvents(const std::wstring& name);
+
+		std::function<void()>& GetStartEvent(const std::wstring& name);
+		std::function<void()>& GetCompleteEvent(const std::wstring& name);
+		std::function<void()>& GetEndEvent(const std::wstring& name);
 
 		bool IsComplete() { return mActiveAnimation->IsComplete(); }
 

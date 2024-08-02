@@ -10,6 +10,12 @@ namespace JH {
 	}
 	Layer::~Layer()
 	{
+		for (GameObject* gameObj : mGameObjects)
+		{
+			if (gameObj != nullptr);
+			delete gameObj;
+			gameObj = nullptr;
+		}
 
 	}
 

@@ -2,6 +2,7 @@
 #include "JHInput.h"
 #include "JHTime.h"
 #include "JHSceneManager.h"
+#include "JHResources.h"
 namespace JH
 {
 	JHApplication::JHApplication()
@@ -57,6 +58,12 @@ namespace JH
 		SceneManager::Render(mBackHDC);
 
 		copyRenderTarget(mBackHDC, mHdc);
+	}
+
+	void JHApplication::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void JHApplication::clearRenderTarget()

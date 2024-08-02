@@ -35,6 +35,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+    _CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+    //_CrtSetBreakAlloc ( 2468 );
 
     // TODO: 여기에 코드를 입력합니다.
 
@@ -79,6 +81,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,         //프로그램 인스턴
         }
     }
     Gdiplus::GdiplusShutdown(gpToken);
+    application.Release();
 
     return (int) msg.wParam;
 }
