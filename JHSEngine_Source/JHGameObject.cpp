@@ -3,7 +3,7 @@
 #include "JHTransform.h"
 namespace JH {
 	GameObject::GameObject() :
-		mComponents{}
+		mComponents{}, mState(eState::Active)
 	{
 		mComponents.resize((UINT)enums::eComponenetType::End);
 		initializeTransform();

@@ -30,4 +30,9 @@ namespace JH::object
 
 		return gameObject;
 	}
+
+	static void Destroy(GameObject* obj)
+	{
+		obj->death();
+	}
 }

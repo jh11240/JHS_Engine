@@ -51,6 +51,7 @@ namespace JH {
 	}
 	void PlayerScript::AttackEffect()
 	{
+
 	}
 	void PlayerScript::idle()
 	{

@@ -2,12 +2,22 @@
 #include "CommonInclude.h"
 #include "JHTime.h"
 #include "JHComponent.h"
+#include "JHObject.h"
 
 namespace JH {
 
 	class GameObject
 	{
 	public:
+		//friend void object::Destroy(GameObject* obj);
+
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -43,12 +53,20 @@ namespace JH {
 			return component;
 		}
 
+		void SetActive(bool power)
+		{
+			if (power) mState = eState::Active;
+			if (!power) mState = eState::Paused;
+		}
+		void Death() { mState = eState::Dead; }
+
 	private:
 		void initializeTransform();
 
 	private:
 
 		std::vector<Component*> mComponents;
+		eState mState;
 
 	};
 }
