@@ -48,6 +48,7 @@ namespace JH {
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Key& key);
 		static void updateKeyUp(Key& key);
+		static void getMousePositionByWindow();
 		static void clearKeys();
 
 	private:

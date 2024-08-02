@@ -9,6 +9,31 @@ namespace JH {
 	{
 
 	public:
+		//addlistener 안만드나
+		struct Event
+		{
+			void operator = (std::function<void()> func)
+			{
+				mEvent = std::move(func);
+			}
+
+
+			void operator()()
+			{
+				if (mEvent)
+					mEvent;
+			}
+			std::function <void()> mEvent;
+		};
+
+		struct Events
+		{
+			Event mStartEvent;
+			Event mCompleteEvent;
+			Event mEndEvent;
+
+		};
+
 		Animator();
 		~Animator();
 
@@ -29,12 +54,18 @@ namespace JH {
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name = L"Idle", bool loop = true);
 
+		bool IsComplete() { return mActiveAnimation->IsComplete(); }
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
 		Animation* mActiveAnimation;
 		//for loop
 		bool mbLoop;
+
+		//Event
+		std::map<std::wstring, Events*> mEvents;
+		
+
 	};
 }
 

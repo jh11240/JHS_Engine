@@ -54,19 +54,11 @@ namespace JH {
 		//내 해당 윈도우가 활성화 되어있을 때만
 		if (GetFocus())
 		{
-			if (isKeyDown(key.keyCode)) {
+			if (isKeyDown(key.keyCode)) 
 				updateKeyDown(key);
-			}
 			else
 				updateKeyUp(key);
-			POINT mousePos = {};
-			//전체 윈도우의 좌표
-			GetCursorPos(&mousePos);
-
-			ScreenToClient(application.GetHwnd(), &mousePos);
-
-			mMousePosition.x = mousePos.x;
-			mMousePosition.y = mousePos.y;
+			getMousePositionByWindow();
 		}
 		else
 		{
@@ -102,12 +94,24 @@ namespace JH {
 		key.bPressed = false;
 	}
 
+	void Input::getMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		//전체 윈도우의 좌표
+		GetCursorPos(&mousePos);
+
+		ScreenToClient(application.GetHwnd(), &mousePos);
+
+		mMousePosition.x = mousePos.x;
+		mMousePosition.y = mousePos.y;
+	}
+
 	void Input::clearKeys()
 	{
 		//창을 내려버리면 key 리셋
 		for (Key& key : Keys)
 		{
-			if (key.state == eKeyState::Down || key.state = eKeyState::Pressed) {
+			if (key.state == eKeyState::Down || key.state == eKeyState::Pressed) {
 				key.state = eKeyState::Up;
 			}
 			else if (key.state == eKeyState::Up) {

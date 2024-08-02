@@ -30,6 +30,7 @@ namespace JH {
 		case JH::PlayerScript::eState::Sleep:
 			break;
 		case JH::PlayerScript::eState::GiveWater:
+			giveWater();
 			break;
 		case JH::PlayerScript::eState::Attack:
 			break;
@@ -48,11 +49,10 @@ namespace JH {
 	{
 		if (Input::GetKey(eKeyCode::MLeftBtn))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"RightWalk");
+			mState = PlayerScript::eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater",false);
 
 			Vector2 mousePos = Input::GetMousePosition();
-			int a = 0;
 
 		}
 	}
@@ -88,6 +88,14 @@ namespace JH {
 			mState = JH::PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"SitDown", false);
 
+		}
+	}
+	void PlayerScript::giveWater()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
 		}
 	}
 }

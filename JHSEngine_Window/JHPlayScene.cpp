@@ -50,6 +50,8 @@ namespace JH {
 		Animator* playerAnimator= mPlayer->AddComponent<Animator>();
 		playerAnimator->CreateAnimation(L"Idle", playerTex, 
 			Vector2(2000.f , 250.f), Vector2(250.f, 250.f), Vector2::Zero, 1, 0.1f);
+		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTex, 
+			Vector2(0.f , 2000.f), Vector2(250.f, 250.f), Vector2::Zero, 12, 0.1f);
 
 
 
