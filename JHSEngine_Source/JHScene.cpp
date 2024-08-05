@@ -63,5 +63,13 @@ namespace JH
 			layer->Render(hdc);
 		}
 	}
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers) {
+			if (layer == nullptr)
+				continue;
+			layer->Destroy();
+		}
+	}
 
 }

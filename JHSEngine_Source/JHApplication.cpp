@@ -44,6 +44,8 @@ namespace JH
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 	void JHApplication::LateUpdate() {
 		SceneManager::LateUpdate();
@@ -58,6 +60,12 @@ namespace JH
 		SceneManager::Render(mBackHDC);
 
 		copyRenderTarget(mBackHDC, mHdc);
+	}
+
+	void JHApplication::Destroy()
+	{
+		SceneManager::Destroy();
+
 	}
 
 	void JHApplication::Release()

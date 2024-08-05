@@ -2,7 +2,7 @@
 #include "CommonInclude.h"
 #include "JHTime.h"
 #include "JHComponent.h"
-#include "JHObject.h"
+//#include "JHObject.h"
 
 namespace JH {
 
@@ -16,6 +16,7 @@ namespace JH {
 			Active,
 			Paused,
 			Dead,
+			End
 		};
 
 		GameObject();
@@ -53,6 +54,7 @@ namespace JH {
 			return component;
 		}
 
+		eState GetActive() { return mState; }
 		void SetActive(bool power)
 		{
 			if (power) mState = eState::Active;

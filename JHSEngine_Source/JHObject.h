@@ -33,6 +33,6 @@ namespace JH::object
 
 	static void Destroy(GameObject* obj)
 	{
-		obj->death();
+		obj->Death();
 	}
 }

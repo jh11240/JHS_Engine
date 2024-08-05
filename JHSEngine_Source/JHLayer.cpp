@@ -51,6 +51,27 @@ namespace JH {
 			gameObj->Render(hdc);
 		}
 	}
+	void Layer::Destroy()
+	{
+		for (GameObjectIter iter =mGameObjects.begin();iter!= mGameObjects.end();)
+		{
+			if (*iter == nullptr)
+				continue;
+			GameObject::eState active = (*iter)->GetActive();
+			if (active == GameObject::eState::Dead) 
+			{
+				GameObject* deathObj = (*iter);
+
+				iter = mGameObjects.erase(iter);
+
+				delete deathObj;
+				deathObj = nullptr;
+
+				continue;
+			}
+			iter++;
+		}
+	}
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
 		if (gameObject == nullptr)

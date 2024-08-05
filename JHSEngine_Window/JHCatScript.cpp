@@ -4,11 +4,13 @@
 #include "JHTransform.h" 
 #include "JHGameObject.h"
 #include "JHAnimator.h"
+#include "JHObject.h"
 
 namespace JH {
 	CatScript::CatScript() :mState(CatScript::eState::SitDown),
 		mAnimator(nullptr)
 		, mTime(0.0f)
+		,mDeathTime(0.0f)
 	{
 	}
 	CatScript::~CatScript()
@@ -19,6 +21,12 @@ namespace JH {
 	}
 	void CatScript::Update()
 	{
+		mDeathTime += Time::DeltaTime();
+
+		if (mDeathTime > 6.0f)
+		{
+			object::Destroy(GetOwner());
+		}
 		if (mAnimator == nullptr)
 			mAnimator = GetOwner()->GetComponent<Animator>();
 		switch (mState)
