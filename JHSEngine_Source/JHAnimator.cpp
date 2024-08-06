@@ -100,7 +100,7 @@ namespace JH {
 		}
 
 		UINT sheetWidth = images[0]->GetWidth() * fileCount;
-		UINT sheetHeight = images[0]->GetWidth();
+		UINT sheetHeight = images[0]->GetHeight();
 		graphics::Texture* spriteSheet = graphics::Texture::Create(name, sheetWidth, sheetHeight);
 		
 		UINT imageWidth = images[0]->GetWidth();
@@ -113,7 +113,7 @@ namespace JH {
 				,images[i]->GetHdc(), 0,0,SRCCOPY);
 		}
 
-		CreateAnimation(name, spriteSheet, Vector2::One, Vector2(imageWidth, imageHeight)
+		CreateAnimation(name, spriteSheet, Vector2(0.0f,0.0f), Vector2(imageWidth, imageHeight)
 			, offset, fileCount, duration);
 	}
 	Animation* Animator::FindAnimation(const std::wstring& name)

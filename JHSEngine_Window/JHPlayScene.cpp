@@ -58,7 +58,7 @@ namespace JH {
 		playerAnimator->PlayAnimation(L"Idle", false);
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater" ) = std::bind(&PlayerScript::AttackEffect,plScript );
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(10.f, 100.f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
 
@@ -66,7 +66,7 @@ namespace JH {
 
 		Cat* cat = object::Instantiate<Cat>
 			(enums::eLayerType::Animal);
-		cat->SetActive(true);
+		//cat->SetActive(true);
 		cat->AddComponent<CatScript>();
 
 
@@ -92,11 +92,12 @@ namespace JH {
 
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle",L"..\\Resources\\Mushroom", Vector2::Zero,
 		 0.1f);
+		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-		cat->GetComponent<Transform>()->SetPosition(Vector2(300.f, 300.f));
+		cat->GetComponent<Transform>()->SetPosition(Vector2(200.f, 200.f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
-		cameraComp->SetTarget(cat);
+		//cameraComp->SetTarget(cat);
 
 		Scene::Initialize();
 	}

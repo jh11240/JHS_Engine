@@ -51,6 +51,8 @@ namespace JH {
 				,mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y, mTexture->GetHdc()
 				,0,0,mTexture->GetWidth(), mTexture->GetHeight(),
 				RGB(255,0,255 ));
+
+
 		}
 		else if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Png)
