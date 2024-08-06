@@ -12,8 +12,11 @@ namespace JH {
 	{
 		for (GameObject* gameObj : mGameObjects)
 		{
-			if (gameObj != nullptr);
+			if (gameObj == nullptr) continue;
+
 			delete gameObj;
+
+
 			gameObj = nullptr;
 		}
 
@@ -24,6 +27,13 @@ namespace JH {
 		for (GameObject* gameObj : mGameObjects) {
 			if (gameObj == nullptr)
 				continue;
+
+			GameObject::eState state = gameObj->GetActive();
+
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
+			{
+				continue;
+			}
 			gameObj->Initialize();
 		}
 	}
@@ -32,6 +42,12 @@ namespace JH {
 		for (GameObject* gameObj : mGameObjects) {
 			if (gameObj == nullptr)
 				continue;
+			GameObject::eState state = gameObj->GetActive();
+
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
+			{
+				continue;
+			}
 			gameObj->Update();
 		}
 	}
@@ -48,6 +64,12 @@ namespace JH {
 		for (GameObject* gameObj : mGameObjects) {
 			if (gameObj == nullptr)
 				continue;
+			GameObject::eState state = gameObj->GetActive();
+
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
+			{
+				continue;
+			}
 			gameObj->Render(hdc);
 		}
 	}

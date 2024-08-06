@@ -7,6 +7,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <filesystem>
 
 #include "JHMath.h"
 #include <mmsystem.h>

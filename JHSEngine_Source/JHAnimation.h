@@ -37,6 +37,7 @@ namespace JH
 			, UINT spriteLength
 			, float duration);
 
+
 		void Reset();
 
 		bool IsComplete() { return mbComplete; }

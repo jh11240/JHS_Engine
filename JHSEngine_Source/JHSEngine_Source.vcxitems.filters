@@ -38,12 +38,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JHComponent.cpp">
       <Filter>Component\Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimator.cpp">
-      <Filter>Component\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimation.cpp">
-      <Filter>Resource</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHResource.cpp">
       <Filter>Resource</Filter>
     </ClCompile>
@@ -52,6 +46,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JHApplication.cpp">
       <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimator.cpp">
+      <Filter>Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JHAnimation.cpp">
+      <Filter>Component\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,12 +101,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JHComponent.h">
       <Filter>Component\Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimator.h">
-      <Filter>Component\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimation.h">
-      <Filter>Resource</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHResource.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -115,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JHApplication.h">
       <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimator.h">
+      <Filter>Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JHAnimation.h">
+      <Filter>Component\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +156,9 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{73fba5a1-e2cc-4322-922f-93cc3add3ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{4635afc5-527a-4191-978b-00e0147a41c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
