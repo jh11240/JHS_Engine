@@ -46,12 +46,37 @@ namespace JH {
 		if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Bmp)
 		{
-			//transparentBlt는 
-			TransparentBlt(hdc,pos.x,pos.y
-				,mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y, mTexture->GetHdc()
-				,0,0,mTexture->GetWidth(), mTexture->GetHeight(),
-				RGB(255,0,255 ));
+			
 
+			if (mTexture->IsAlpha())
+			{
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255;		// 0(transparent) ~ 255 (Opaque)
+				AlphaBlend
+				(hdc,
+					//offset 해당 스프라이트의 중심으로 맞추기 lefttop말고
+					pos.x
+					, pos.y
+					, mTexture->GetWidth() * mSize.x * scale.x,
+					mTexture->GetHeight() * mSize.y * scale.y,
+					mTexture->GetHdc()
+					, 0
+					, 0
+					, mTexture->GetWidth()
+					, mTexture->GetHeight()
+					,func);
+			}
+			else {
+				//transparentBlt는 
+				TransparentBlt(hdc, pos.x, pos.y
+					, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y, mTexture->GetHdc()
+					, 0, 0, mTexture->GetWidth(), mTexture->GetHeight(),
+					RGB(255, 0, 255));
+
+			}
 
 		}
 		else if (mTexture->GetTextureType()
