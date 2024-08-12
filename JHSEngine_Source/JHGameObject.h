@@ -60,6 +60,7 @@ namespace JH {
 			if (power) mState = eState::Active;
 			if (!power) mState = eState::Paused;
 		}
+		bool IsActive() { return mState == eState::Active; }
 		void Death() { mState = eState::Dead; }
 
 	private:

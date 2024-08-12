@@ -31,6 +31,8 @@ namespace JH
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetPlayer(GameObject* player) { mPlayer = player; }
+		Vector2 mDest;
 	private:
 		void sitDown();
 		void move();
@@ -39,11 +41,15 @@ namespace JH
 		void PlayWalkAnimationBydirection(eDirection dir);
 		void translate(Transform* tr);
 
+
 	private:
 		eState mState;
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime;
 		float mDeathTime;
+		float mRadian;
+		GameObject* mPlayer;
+
 	};
 }

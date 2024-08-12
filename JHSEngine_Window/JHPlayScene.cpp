@@ -15,6 +15,8 @@
 #include "JHAnimator.h"
 #include "JHCat.h"
 #include "JHCatScript.h"
+#include "JHBoxCollider2D.h"
+#include "JHCollisionManager.h"
 
 namespace JH {
 	PlayScene::PlayScene()
@@ -28,6 +30,7 @@ namespace JH {
 
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 
 		// main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.f,442.f));
@@ -43,6 +46,8 @@ namespace JH {
 		mPlayer = object::Instantiate<Player>
 			(enums::eLayerType::Particle);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+		BoxCollider2D* collider=  mPlayer->AddComponent<BoxCollider2D>();
+		collider->SetOffset(Vector2(-50.0f,-50.0f));
 
 
 		
@@ -58,7 +63,7 @@ namespace JH {
 		playerAnimator->PlayAnimation(L"Idle", false);
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater" ) = std::bind(&PlayerScript::AttackEffect,plScript );
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.f, 250.f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
 
@@ -66,36 +71,41 @@ namespace JH {
 
 		Cat* cat = object::Instantiate<Cat>
 			(enums::eLayerType::Animal);
-		//cat->SetActive(true);
+		cat->SetActive(true);
 		cat->AddComponent<CatScript>();
 
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
-	/*	catAnimator->CreateAnimation(L"DownWalk", catTex,
-			Vector2(0.f, 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"RightWalk", catTex,
-			Vector2(0.f, 32.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"UpWalk", catTex,
-			Vector2(0.f, 64.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"LeftWalk", catTex,
-			Vector2(0.f, 96.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"SitDown", catTex,
-			Vector2(0.f, 128.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"Grooming", catTex,
-			Vector2(0.f, 160.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"LayDown", catTex,
-			Vector2(0.f, 192), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
 
 
-		catAnimator->PlayAnimation(L"SitDown", false);*/
+		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		boxCatCollider->SetOffset(Vector2(-50.f, -50.0f));
+
+	///*	catAnimator->CreateAnimation(L"DownWalk", catTex,
+	//		Vector2(0.f, 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"RightWalk", catTex,
+	//		Vector2(0.f, 32.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"UpWalk", catTex,
+	//		Vector2(0.f, 64.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"LeftWalk", catTex,
+	//		Vector2(0.f, 96.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"SitDown", catTex,
+	//		Vector2(0.f, 128.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"Grooming", catTex,
+	//		Vector2(0.f, 160.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+	//	catAnimator->CreateAnimation(L"LayDown", catTex,
+	//		Vector2(0.f, 192), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
+
+
+		//catAnimator->PlayAnimation(L"SitDown", false);
 
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle",L"..\\Resources\\Mushroom", Vector2::Zero,
 		 0.1f);
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.f, 200.f));
-		cat->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
+		//cat->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
 		//cameraComp->SetTarget(cat);
 

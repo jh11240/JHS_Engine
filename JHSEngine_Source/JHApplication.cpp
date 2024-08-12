@@ -3,6 +3,7 @@
 #include "JHTime.h"
 #include "JHSceneManager.h"
 #include "JHResources.h"
+#include "JHCollisionManager.h"
 namespace JH
 {
 	JHApplication::JHApplication()
@@ -24,6 +25,7 @@ namespace JH
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 
 		adjustWindowRect(mHwnd, width, height);
@@ -36,6 +38,7 @@ namespace JH
 
 		Input::Update();
 		Time::Update();
+		CollisionManager::Update();
 
 		SceneManager::Update();
 
@@ -48,6 +51,7 @@ namespace JH
 		Destroy();
 	}
 	void JHApplication::LateUpdate() {
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void JHApplication::Render() 
@@ -56,6 +60,7 @@ namespace JH
 
 		Time::Render(mBackHDC);
 
+		CollisionManager::Render(mBackHDC);
 
 		SceneManager::Render(mBackHDC);
 
@@ -76,8 +81,16 @@ namespace JH
 
 	void JHApplication::clearRenderTarget()
 	{		
+		//Clear
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHDC, grayBrush);
+
 		//clear Clearing
 		Rectangle(mBackHDC, -1, -1, 1601, 901);
+
+		(HBRUSH)SelectObject(mBackHDC, oldBrush);
+
+		DeleteObject(grayBrush);
 	}
 	void JHApplication::copyRenderTarget(HDC source, HDC dest)
 	{

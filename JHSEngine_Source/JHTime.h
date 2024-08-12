@@ -8,7 +8,9 @@ namespace JH
 		static void Initialize();
 		static void Update();
 		static void Render(HDC dc);
-		static float DeltaTime() { return DeltaTimeValue;}
+		
+		//컴파일러가 무조건 쓰는건 아니지만 좀더 확률 업
+		__forceinline static float DeltaTime() { return DeltaTimeValue;}
 
 	private:
 		static LARGE_INTEGER CpuFrequency;

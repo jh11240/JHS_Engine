@@ -6,12 +6,15 @@ namespace JH::enums
 	enum class eComponenetType
 	{
 		Transform,
+		Collider,
+		Script,
 		SpriteRenderer,
 		Animator,
-		Script,
 		Camera,
 		End,
 	};
+
+
 	enum class eLayerType
 	{
 		None,
@@ -24,6 +27,7 @@ namespace JH::enums
 		Max = 16,
 	};
 
+	
 	enum class eResourceType
 	{
 		Texture,

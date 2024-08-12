@@ -11,6 +11,8 @@ namespace JH {
 		mAnimator(nullptr)
 		, mTime(0.0f)
 		,mDeathTime(0.0f)
+		, mDest(Vector2::Zero)
+		,mRadian(0.0f)
 	{
 	}
 	CatScript::~CatScript()
@@ -57,15 +59,52 @@ namespace JH {
 	void CatScript::sitDown()
 	{
 		mTime += Time::DeltaTime();
-		if (mTime > 3.0f)
-		{
-			mState = CatScript::eState::Walk;
-			int direction = (rand() % 4);
-			mDirection = (eDirection)direction;
-			PlayWalkAnimationBydirection(mDirection);
-			mTime = 0.0f;
-		
-		}
+
+		//if (mTime > 2.0f)
+			//object::Destroy(GetOwner());
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+
+		// 마우스를 통한 이동
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		//pos += dest.normalize() * (100.0f * Time::DeltaTime());
+
+		//tr->SetPosition(pos);
+
+		//삼각함수를 통한 이동
+
+		//mRadian += 10.f *Time::DeltaTime();
+		//
+		//pos += Vector2(1.0f, 5*cosf(mRadian) ) * (100.0f * Time::DeltaTime());
+
+
+		//마우스 위치 방향으로 회전 후 마우스 위치 이동
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+
+		//dest.normalize();
+
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right);	//cos세타
+		////acosf는 라디안 값으로 변환해줌
+		//rotDegree = acosf(rotDegree);
+
+		//rotDegree= ConvertDegree(rotDegree);
+
+		//pos += dest.normalize() * (100.0f * Time::DeltaTime());
+
+		//tr->SetPosition(pos);
+
+	//	if (mTime > 3.0f)
+	//	{
+	//		mState = CatScript::eState::Walk;
+	//		int direction = (rand() % 4);
+	//		mDirection = (eDirection)direction;
+	//		PlayWalkAnimationBydirection(mDirection);
+	//		mTime = 0.0f;
+	//	}
 	}
 	void CatScript::move()
 	{

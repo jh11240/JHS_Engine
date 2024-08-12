@@ -19,7 +19,7 @@ namespace JH
 
 		void AddGameObject(GameObject* gameObject);
 
-
+		const std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
 	private:
 			enums::eLayerType mType;
 			std::vector<GameObject*> mGameObjects;
