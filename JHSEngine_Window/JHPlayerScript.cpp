@@ -9,8 +9,9 @@
 #include "JHObject.h"
 #include "JHResource.h"
 #include "JHResources.h"
+#include "JHCollider.h"
 namespace JH {
-	PlayerScript::PlayerScript():mState(PlayerScript::eState::Idle) ,
+	PlayerScript::PlayerScript():mState(PlayerScript::eState::Walk) ,
 		mAnimator(nullptr)
 	{
 	}
@@ -49,6 +50,18 @@ namespace JH {
 	}
 	void PlayerScript::Render(HDC hdc)
 	{
+	}
+	void PlayerScript::OnColliderEnter(Collider* other) 
+	{
+		int a = 0;
+	}
+	void PlayerScript::OnColliderStay(Collider* other)
+	{
+		int a = 0;
+	}
+	void PlayerScript::OnColliderExit(Collider* other)
+	{
+		int a = 0;
 	}
 	void PlayerScript::AttackEffect()
 	{
@@ -96,6 +109,29 @@ namespace JH {
 
 			Vector2 mousePos = Input::GetMousePosition();
 
+		}
+
+		if (Input::GetKey(eKeyCode::Right))
+		{
+			mState = JH::PlayerScript::eState::Walk;
+
+		}
+		if (Input::GetKey(eKeyCode::Left))
+		{
+			mState = JH::PlayerScript::eState::Walk;
+
+
+		}
+		if (Input::GetKey(eKeyCode::Up))
+		{
+			mState = JH::PlayerScript::eState::Walk;
+
+
+			
+		}
+		if (Input::GetKey(eKeyCode::Down))
+		{
+			mState = JH::PlayerScript::eState::Walk;
 		}
 	}
 	void PlayerScript::move()

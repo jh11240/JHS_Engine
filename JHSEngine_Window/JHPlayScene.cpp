@@ -44,9 +44,10 @@ namespace JH {
 		//camera->AddComponent<PlayerScript>();
 
 		mPlayer = object::Instantiate<Player>
-			(enums::eLayerType::Particle);
+			(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		BoxCollider2D* collider=  mPlayer->AddComponent<BoxCollider2D>();
+		//BoxCollider2D* collider=  mPlayer->AddComponent<BoxCollider2D>();
+		CircleCollider2D* collider=  mPlayer->AddComponent<CircleCollider2D>();
 		collider->SetOffset(Vector2(-50.0f,-50.0f));
 
 
@@ -79,8 +80,9 @@ namespace JH {
 		Animator* catAnimator = cat->AddComponent<Animator>();
 
 
-		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
-		boxCatCollider->SetOffset(Vector2(-50.f, -50.0f));
+		//BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		CircleCollider2D* CatCollider = cat->AddComponent<CircleCollider2D>();
+		CatCollider->SetOffset(Vector2(-50.f, -50.0f));
 
 	///*	catAnimator->CreateAnimation(L"DownWalk", catTex,
 	//		Vector2(0.f, 0.f), Vector2(32.f, 32.f), Vector2::Zero, 4, 0.1f);
@@ -104,7 +106,7 @@ namespace JH {
 		 0.1f);
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-		cat->GetComponent<Transform>()->SetPosition(Vector2(200.f, 200.f));
+		cat->GetComponent<Transform>()->SetPosition(Vector2(100.f, 200.f));
 		//cat->GetComponent<Transform>()->SetScale(Vector2(2.f, 2.f));
 
 		//cameraComp->SetTarget(cat);
